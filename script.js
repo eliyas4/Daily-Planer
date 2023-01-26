@@ -7,8 +7,9 @@ let saveButtonEl = document.querySelector("#nineAM-save")
 
 timeStamp();
 colouredTabs();
-storePlans();
 
+
+saveButtonEl.addEventListener("click", storePlans);
 
 // This part displays the time in the header.
 function timeStamp() {
@@ -37,7 +38,7 @@ function colouredTabs() {
     }
 }
 
-saveButtonEl.addEventListener("click", storePlans);
+
 function storePlans(event) {
     
     console.log("yeet")
