@@ -58,8 +58,13 @@ function storePlans() {
 
 // This renders any plans that are already in arrayStore
 function renderPlans() {
+    
     let storedPlans = JSON.parse(localStorage.getItem("userPlan"))
+    console.log(storedPlans)
+    if (storedPlans == null) {
+        return    
+    }
     for (let i = 0; i < 9; i++) {
-        hourlyPlan[i].textContent = storedPlans[i];     
+        hourlyPlan[i].textContent = storedPlans[i];
     }
 }
