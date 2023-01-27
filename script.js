@@ -1,8 +1,8 @@
 let timeDisplayEl = document.querySelector("#currentDay");
 let timeBlockEl = document.querySelectorAll("textarea")
 let nineAMSave = document.querySelector("#nineAM-save")
-let hourlyPlan = document.querySelector(".plan")
-
+let hourlyPlan = document.querySelectorAll(".plan")
+let arrayStore = []
 timeStamp();
 colouredTabs();
 renderPlans();
@@ -50,19 +50,41 @@ nineAMSave.addEventListener("click", storePlans);
 function storePlans(event) {    
     console.log("working")
     console.log(hourlyPlan)
+    
     for (let i = 0; i < hourlyPlan.length; i++) {
-        const element = array[i];
+        const textAreaVal = hourlyPlan[i].value;
+        console.log(textAreaVal)
+        arrayStore.push(textAreaVal)
+        
         
     }
-    let userPlan = hourlyPlan.value
-    console.log(userPlan)
-    localStorage.setItem("userPlan", JSON.stringify(userPlan));
+    console.log(arrayStore)
+//    let userPlan = hourlyPlan.value
+//    console.log(userPlan)
+    localStorage.setItem("userPlan", JSON.stringify(arrayStore));
     event.preventDefault();
 }
 
 function renderPlans() {
     let storedPlans = JSON.parse(localStorage.getItem("userPlan"))
-    console.log(storedPlans)
-    let nineamBlock = document.querySelector(".nine")
-    nineamBlock.textContent = storedPlans;
+//    console.log(storedPlans[1])
+//    console.log(hourlyPlan[1])
+    console.log(storedPlans[0])
+    console.log(hourlyPlan[0])
+    
+
+
+    for (let i = 0; i < 9; i++) {
+        hourlyPlan[i].textContent = storedPlans[i];
+        
+    }
+        
+        
+
+        
+    
+//    let storedPlans = JSON.parse(localStorage.getItem("userPlan"))
+//    console.log(storedPlans)
+//    let nineamBlock = document.querySelector(".nine")
+//    nineamBlock.textContent = storedPlans;
 }
