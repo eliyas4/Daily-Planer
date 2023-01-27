@@ -46,8 +46,14 @@ function colouredTabs() {
 
 nineAMSave.addEventListener("click", storePlans);
 
+
 function storePlans(event) {    
     console.log("working")
+    console.log(hourlyPlan)
+    for (let i = 0; i < hourlyPlan.length; i++) {
+        const element = array[i];
+        
+    }
     let userPlan = hourlyPlan.value
     console.log(userPlan)
     localStorage.setItem("userPlan", JSON.stringify(userPlan));
