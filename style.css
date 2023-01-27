@@ -73,8 +73,6 @@ button i:hover {
   transition: all 0.3s ease-in-out;
 }
 
-
-
 article {
   display: flex;
   justify-content: stretch;
@@ -95,5 +93,13 @@ article p {
 }
 
 section {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+}
+
+#last-block {
+  margin-bottom: 100px;
+}
+
+.overlapping-block {
+  border-top: none;
 }

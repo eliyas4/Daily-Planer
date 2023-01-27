@@ -1,17 +1,11 @@
 let timeDisplayEl = document.querySelector("#currentDay");
-let timeBlockEl = document.querySelector("textarea")
-let saveButtonEl = document.querySelector("#nineAM-save")
+let timeBlockEl = document.querySelectorAll("textarea")
+let nineAMSave = document.querySelector("#nineAM-save")
 let hourlyPlan = document.querySelector(".plan")
-
-
-
 
 timeStamp();
 colouredTabs();
 renderPlans();
-
-
-saveButtonEl.addEventListener("click", storePlans);
 
 // This part displays the time in the header.
 function timeStamp() {
@@ -20,59 +14,49 @@ function timeStamp() {
 }
 
 
-
-
 // This part determines if a textarea is in the future or the past.
 function colouredTabs() {
     let currentHour = moment().hour();
     console.log(currentHour)
-    let nineAM = timeBlockEl.getAttribute("id")
-    console.log(nineAM)
 
-    if (currentHour > nineAM) {
-        timeBlockEl.classList.remove("future");
-        timeBlockEl.classList.remove("present");
-        timeBlockEl.classList.add("past");
-        
-        
-    }
-    else if (currentHour == nineAM) {
-        timeBlockEl.classList.add("present");
-        timeBlockEl.classList.remove("future");
-        timeBlockEl.classList.remove("past");
-        
-    } 
-    else {
-        timeBlockEl.classList.add("future");    
-        timeBlockEl.classList.remove("present");
-        timeBlockEl.classList.remove("past");
-          
-    } 
+    for (let i = 0; i < timeBlockEl.length; i++) {
+        let blockTime = timeBlockEl[i].getAttribute("id")
+        console.log(blockTime)
+
+        if (currentHour > blockTime) {
+           timeBlockEl[i].classList.remove("future");
+           timeBlockEl[i].classList.remove("present");
+           timeBlockEl[i].classList.add("past");
+            
+            
+        }
+        else if (currentHour == blockTime) {
+           timeBlockEl[i].classList.add("present");
+           timeBlockEl[i].classList.remove("future");
+           timeBlockEl[i].classList.remove("past");
+            
+        } 
+        else {
+           timeBlockEl[i].classList.add("future");    
+           timeBlockEl[i].classList.remove("present");
+           timeBlockEl[i].classList.remove("past");        
+        }     
+    }   
 }
 
+nineAMSave.addEventListener("click", storePlans);
 
-function storePlans(event) {
-    
-    console.log("yeet")
+function storePlans(event) {    
+    console.log("working")
     let userPlan = hourlyPlan.value
     console.log(userPlan)
     localStorage.setItem("userPlan", JSON.stringify(userPlan));
-
     event.preventDefault();
 }
-
-
-
-
 
 function renderPlans() {
     let storedPlans = JSON.parse(localStorage.getItem("userPlan"))
     console.log(storedPlans)
-    timeBlockEl.textContent = storedPlans;
-
-    
-    
+    let nineamBlock = document.querySelector(".nine")
+    nineamBlock.textContent = storedPlans;
 }
-
-
-
