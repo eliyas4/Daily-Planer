@@ -25,7 +25,6 @@ function timeStamp() {
 // This part determines if a textarea is in the future or the past.
 function colouredTabs() {
     let currentHour = moment().hour();
-    console.log(currentHour)
 
     for (let i = 0; i < timeBlockEl.length; i++) {
         let blockTime = timeBlockEl[i].getAttribute("id")
