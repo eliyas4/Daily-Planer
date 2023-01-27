@@ -57,10 +57,8 @@ function storePlans() {
 }
 
 // This renders any plans that are already in arrayStore
-function renderPlans() {
-    
+function renderPlans() {   
     let storedPlans = JSON.parse(localStorage.getItem("userPlan"))
-    console.log(storedPlans)
     if (storedPlans == null) {
         return    
     }
