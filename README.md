@@ -14,6 +14,10 @@ N/A
 - The message can be any length, so the user can input as much detail as they want, allowing the webpage to be used as anything from a short bullet pointed calender to a detailed daily journal.  
 ![Screenshot 2023-01-27 230248](https://user-images.githubusercontent.com/117546142/215222286-02908b5d-0924-498c-85cb-aedfb48799ce.png)
 
-##
+## Credits
+N/A
+
+## License
+MIT License
 
 
